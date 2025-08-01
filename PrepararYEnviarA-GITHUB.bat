@@ -2,18 +2,28 @@
 setlocal EnableDelayedExpansion
 
 REM ================================
-REM 🗂️ Generar lista de imágenes
+REM 🌎 VARIABLES GLOBALES
 REM ================================
+set "dirProyecto=C:\MEDIOS\ProyectosArduinoFZ\ProyectosESP-GitHub\MiCompendio"
+set "urlRemoto=https://github.com/usresp/MiCompendio.git"
 
-cd /d C:\MEDIOS\ProyectosArduinoFZ\ProyectosESP-GitHub\MiCompendio\
+REM ================================
+REM 🗂️ Generar lista de archivos
+REM ================================
+cd /d "%dirProyecto%"
 
 REM Borrar archivos antiguos
 if exist ListaArchivosGlobal.txt del /f /q ListaArchivosGlobal.txt
 if exist ListaArchivosGlobal-cruda.txt del /f /q ListaArchivosGlobal-cruda.txt
 set estado_borrado=[OK]
 
-echo 🔄 Generando lista cruda...
-for /R %%F in (*) do @echo %%F >> ListaArchivosGlobal-cruda.txt
+echo 🔄 Generando lista cruda (excluyendo .git)...
+
+REM ✅ Excluir .git de forma robusta
+for /f "delims=" %%F in ('dir /b /s /a:-d ^| findstr /VI "\\.git\\"') do (
+    echo %%F
+) > ListaArchivosGlobal-cruda.txt
+
 if exist ListaArchivosGlobal-cruda.txt (
     set estado_lista=[OK]
 ) else (
@@ -22,7 +32,7 @@ if exist ListaArchivosGlobal-cruda.txt (
 
 echo 🔧 Limpiando rutas absolutas a relativas...
 powershell -Command ^
-  "$root = 'C:\MEDIOS\ProyectosArduinoFZ\ProyectosESP-GitHub\MiCompendio\';" ^
+  "$root = '%dirProyecto%\';" ^
   "Get-Content 'ListaArchivosGlobal-cruda.txt' | ForEach-Object { ($_ -replace [regex]::Escape($root), '') -replace '\\', '/' } | Set-Content 'ListaArchivosGlobal.txt'"
 if %errorlevel%==0 (
     set estado_limpieza=[OK]
@@ -33,10 +43,15 @@ if %errorlevel%==0 (
 REM ================================
 REM 🧠 Subir cambios a Git
 REM ================================
+cd /d "%dirProyecto%"
 
-cd /d C:\MEDIOS\ProyectosArduinoFZ\ProyectosESP-GitHub\MiCompendio
+REM Asegurarse de que exista el repositorio y remoto
+if not exist ".git" (
+    git init
+    git remote add origin %urlRemoto%
+)
 
-echo 🔄 Agregando archivos de MiCompendio al git...
+echo 🔄 Agregando archivos al git...
 git add .
 if %errorlevel%==0 (
     set estado_add_img=[OK]
@@ -51,14 +66,14 @@ if %errorlevel%==0 (
     set estado_commit=[FALLÓ]
 )
 
-git pull origin main --rebase
+git pull origin master --rebase
 if %errorlevel%==0 (
     set estado_pull=[OK]
 ) else (
     set estado_pull=[FALLÓ]
 )
 
-git push origin main
+git push origin master
 if %errorlevel%==0 (
     set estado_push=[OK]
 ) else (
@@ -79,6 +94,7 @@ echo [*] Archivos agregados al git:         !estado_add_img!
 echo [*] Commit creado:                     !estado_commit!
 echo [*] Pull con rebase:                   !estado_pull!
 echo [*] Push al repositorio remoto:        !estado_push!
+echo [*] Repositorio remoto usado:          %urlRemoto%
 echo ================================
 
 pause
