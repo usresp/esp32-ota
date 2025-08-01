@@ -1,1 +1,1 @@
-C:\MEDIOS\ProyectosArduinoFZ\ProyectosESP-GitHub\MiCompendio\PRUEBA 2\PRUEBA.txt
+C:\MEDIOS\ProyectosArduinoFZ\ProyectosESP-GitHub\MiCompendio\PrepararYEnviarA-GITHUB.bat
