@@ -1,11 +1,11 @@
 210
 37787
 1744385623
-65438
+65184
 4
 2047
 FRASES
 00:15
 00:56
-https://github.com/usresp/MiCompendio/tree/main
+https://raw.githubusercontent.com/usresp/MiCompendio/main
 V1.0
