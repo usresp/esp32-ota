@@ -1,0 +1,3 @@
+Nombre=Ferney Zabala
+FechaNacimiento=15/4/2025
+FotoImagen=FerneyZabala.jpg

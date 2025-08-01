@@ -1,0 +1,14 @@
+//Compendio: Una colección organizada de frases o citas.
+//https://rgbcolorpicker.com/565 PALETA DE COLORES
+//https://www.iloveimg.com/
+// reidmensionar imagnes FotoPersonalizada 250x188
+// redimensionar imagenes FRASES a  70x93 extensión .jpg
+// redimensionar imagenes NEUROCIENCIA a  80x70 extensión .jpg
+// redimensionar iconos OPCIONES a  25x23 extensión .jpg
+//https://macsbug.wordpress.com/2022/08/17/esp32-2432s028/ esquema del dispositivo
+//CORDENADAS DEL TOUCH SCREEN
+
+// POSICION extremo superior Izquierdo X: -4839, Y: 2808
+// POSICION extremo superior Derecho   X: -4797, Y: 349
+// POSICION extremo inferior Izquierdo X: -66,   Y: 2768
+// POSICION extremo inferior Derecho   X: -108,  Y: 400

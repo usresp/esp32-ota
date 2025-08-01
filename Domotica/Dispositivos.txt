@@ -1,0 +1,12 @@
+1|SENSOR-INCENDIO|Cuarto-Aseo|ON|||
+2|SENSOR-INCENDIO|Sala-Estudio|ON|||
+3|SENSOR-INCENDIO|Cuarto-Principal|ON|||
+4|SENSOR-INCENDIO|Vestier|ON|||
+5|SENSOR-INCENDIO|Cocina|ON|||
+1|SENSOR-JARDIN|Jardin-Sala1|ON|||
+2|SENSOR-JARDIN|Jardin-Sala2|ON|||
+3|SENSOR-JARDIN|Jardin-Sala3|OFF|||
+4|SENSOR-JARDIN|Jardin-Balcon1|ON|||
+5|SENSOR-JARDIN|Jardin-Balcon2|ON|||
+6|SENSOR-JARDIN|Jardin-Balcon3|OFF|||
+7|SENSOR-JARDIN|Jardin-Balcon4|OFF|||
