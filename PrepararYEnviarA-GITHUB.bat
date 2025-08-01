@@ -35,7 +35,7 @@ if exist ListaArchivosGlobal-cruda.txt (
 echo 🔧 Limpiando rutas absolutas a relativas...
 powershell -Command ^
   "$root = '%dirProyecto%\';" ^
-  "Get-Content 'ListaArchivosGlobal-cruda.txt' | ForEach-Object { ($_ -replace [regex]::Escape($root), '') -replace '\\', '/' } | Set-Content 'ListaArchivosGlobal.txt'"
+  "Get-Content 'ListaArchivosGlobal-cruda.txt' | Where-Object { $_ -notmatch '\\.git\\' } | ForEach-Object { ($_ -replace [regex]::Escape($root), '') -replace '\\', '/' } | Set-Content 'ListaArchivosGlobal.txt'"
 if %errorlevel%==0 (
     set estado_limpieza=[OK]
 ) else (
