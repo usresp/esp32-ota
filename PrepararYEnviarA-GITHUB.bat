@@ -44,7 +44,7 @@ if %errorlevel%==0 (
     set estado_add_img=[FALLÓ]
 )
 
-git commit -m "📄 Agregar lista de imágenes actualizada"
+git commit -m "Estructura"
 if %errorlevel%==0 (
     set estado_commit=[OK]
 ) else (
