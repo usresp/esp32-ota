@@ -8,4 +8,4 @@ FRASES
 00:15
 00:56
 https://raw.githubusercontent.com/usresp/MiCompendio/main
-V1.0
+1.0
