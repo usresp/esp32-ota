@@ -391,3 +391,4 @@ C:\MEDIOS\ProyectosArduinoFZ\ProyectosESP-GitHub\esp32-ota\Imagenes\Saludable\Ha
 C:\MEDIOS\ProyectosArduinoFZ\ProyectosESP-GitHub\esp32-ota\Imagenes\Saludable\Habitos97.jpg 
 C:\MEDIOS\ProyectosArduinoFZ\ProyectosESP-GitHub\esp32-ota\Imagenes\Saludable\Habitos98.jpg 
 C:\MEDIOS\ProyectosArduinoFZ\ProyectosESP-GitHub\esp32-ota\Imagenes\Saludable\Habitos99.jpg 
+C:\MEDIOS\ProyectosArduinoFZ\ProyectosESP-GitHub\esp32-ota\Imagenes\Usuario\FerneyZabala.jpg 
