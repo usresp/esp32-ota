@@ -19,10 +19,12 @@ set estado_borrado=[OK]
 
 echo 🔄 Generando lista cruda (excluyendo .git)...
 
-REM ✅ Excluir .git de forma robusta
-for /f "delims=" %%F in ('dir /b /s /a:-d ^| findstr /VI "\\.git\\"') do (
-    echo %%F
-) > ListaArchivosGlobal-cruda.txt
+> ListaArchivosGlobal-cruda.txt (
+    for /f "delims=" %%F in ('dir /b /s /a:-d') do (
+        echo %%F | findstr /C:"\.git\" >nul
+        if errorlevel 1 echo %%F
+    )
+)
 
 if exist ListaArchivosGlobal-cruda.txt (
     set estado_lista=[OK]
