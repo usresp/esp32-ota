@@ -66,15 +66,18 @@ if %errorlevel%==0 (
     set estado_commit=[FALLÓ]
 )
 
-git pull origin master --rebase
-if %errorlevel%==0 (
+REM 🔁 Detectar rama activa
+for /f %%R in ('git symbolic-ref --short HEAD') do set rama=%%R
+
+git pull origin !rama! --rebase
+if !errorlevel!==0 (
     set estado_pull=[OK]
 ) else (
     set estado_pull=[FALLÓ]
 )
 
-git push origin master
-if %errorlevel%==0 (
+git push origin !rama!
+if !errorlevel!==0 (
     set estado_push=[OK]
 ) else (
     set estado_push=[FALLÓ]
